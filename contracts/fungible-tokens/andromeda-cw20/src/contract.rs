@@ -51,8 +51,10 @@ pub fn instantiate(
     )?;
     let token_price = TokenPrice { price: msg.token_price };
     TOKEN_PRICE.save(deps.storage, &token_price)?;
-    let token_info = GetTokenInfo {owner:msg.owner.clone(), name: msg.name.clone(), symbol: msg.symbol.clone()};
+    
+    let token_info = GetTokenInfo { owner: msg.owner.clone(), name: msg.name.clone(), symbol: msg.symbol.clone()};
     GET_TOKEN_INFO.save(deps.storage, &token_info)?;
+
     USDC_CONTRACT.save(deps.storage,&msg.usdc_address).unwrap();
 
     let cw20_resp = cw20_instantiate(deps, env, info, msg.into())?;

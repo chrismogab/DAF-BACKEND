@@ -33,12 +33,10 @@ pub struct TokenPrice {
     pub price: Uint128,
 }
 
-pub const GET_TOKEN_INFO: Item<GetTokenInfo> = Item::new("token_info");
+pub const GET_TOKEN_INFO: Item<GetTokenInfo> = Item::new("get_token_info");
 // pub const MARKETING_INFO: Item<MarketingInfoResponse> = Item::new("marketing_info");
 // pub const LOGO: Item<Logo> = Item::new("logo");
 pub const BALANCES: Map<&Addr, Uint128> = Map::new("balance");
 pub const ALLOWANCES: Map<(&Addr, &Addr), AllowanceResponse> = Map::new("allowance");
-
-
 pub const TOKEN_PRICE: Item<TokenPrice> = Item::new("token_price");
 pub const USDC_CONTRACT: Item<String> = Item::new("usdc_contract");
